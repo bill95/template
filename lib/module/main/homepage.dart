@@ -20,10 +20,17 @@ class HomePageState extends State<StatefulWidget> {
       body: Row(
         children: [
           Container(
+            decoration: new BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                border:Border.all(width: 1,color: Colors.red),
+            ),
+
             child: Text("123"),
-            width:  ScreenUtil().setWidth(180),
-            height:  ScreenUtil().setWidth(180),
-            color: Colors.amberAccent,
+            width: ScreenUtil().setWidth(180),
+            height: ScreenUtil().setWidth(180),
+            alignment: Alignment.center,
+            // color: Colors.amberAccent,
           ),
         ],
       ),
