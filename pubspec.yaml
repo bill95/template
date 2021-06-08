@@ -53,6 +53,19 @@ flutter:
   assets:
     - assets/images/bg.jpg
     - assets/images/testgif.gif
+
+  fonts:
+    - family: DINCOND
+      fonts:
+        - asset: assets/font/DINCOND-BOLD_1.ttf
+#  fonts:
+#    - family: DINCOND
+#        fonts:
+#          - asset:font/DINCOND-BOLD_1.ttf
+  #    - family:DINCOND
+  #    - fonts:
+  #      - assets: assets/font/DINCOND-BOLD_1.ttf
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

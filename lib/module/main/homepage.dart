@@ -12,26 +12,33 @@ class homepage extends StatefulWidget {
 }
 
 class HomePageState extends State<StatefulWidget> {
+  var testStyle = const TextStyle(fontFamily: 'DINCOND');
+
   @override
   Widget build(BuildContext context) {
     queryMediaQuery();
+
     return Scaffold(
       appBar: AppBar(),
       body: Row(
         children: [
           Container(
             decoration: new BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                border:Border.all(width: 1,color: Colors.red),
+              color: Colors.green,
+              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+              border: Border.all(width: 1, color: Colors.red),
             ),
 
-            child: Text("123"),
+            child: Text(
+              "123",
+              style: testStyle,
+            ),
             width: ScreenUtil().setWidth(180),
             height: ScreenUtil().setWidth(180),
             alignment: Alignment.center,
             // color: Colors.amberAccent,
           ),
+          getMain()
         ],
       ),
     );
@@ -55,5 +62,36 @@ class HomePageState extends State<StatefulWidget> {
 // 有刘海的屏幕:34 没有刘海的屏幕0
     final bottomHeight = mediaQueryData.padding.bottom;
     print("状态栏height: $statusBarHeight 底部高度:$bottomHeight");
+  }
+
+  Widget getMain() {
+    return Column(
+      children: [
+        getDefineBtn("开通VIP", Color(0xFFFF4396)),
+        getDefineBtn("获取红钻", Color(0xFFA463FF))
+      ],
+    );
+  }
+
+  Widget getBtn() {
+    return Row();
+  }
+
+  Widget getDefineBtn(String text, Color color) {
+    return Container(
+      width: ScreenUtil().setWidth(75),
+      height: ScreenUtil().setWidth(28),
+      alignment: Alignment.center,
+      margin: EdgeInsetsDirectional.fromSTEB(
+          0, ScreenUtil().setWidth(8), 0, ScreenUtil().setWidth(8)),
+      child: Text(
+        text,
+        style: TextStyle(color: Colors.white),
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(4.0)),
+        color: color,
+      ),
+    );
   }
 }
