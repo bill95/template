@@ -5,10 +5,46 @@ import 'homepage.dart';
 
 class router {
   static final Map<String, WidgetBuilder> map = <String, WidgetBuilder>{
-    '/a': (BuildContext context) => Test(),
+    '/a': (BuildContext context) => Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+                child: Column(children: [
+              Row(
+                children: [
+                  // Expanded(flex: 3, child: Text("12312323")),
+                  // Expanded(child: Text("12"))
+                  Text(
+                    "123",
+                    maxLines: 1,
+                  ),
+                  Expanded(
+                      child: Text(
+                    "===============",
+                    maxLines: 1,
+                  )),
+                ],
+              ),
+              Row(
+                children: [
+                  // Expanded(flex: 3, child: Text("12312323")),
+                  // Expanded(child: Text("12"))
+                  Text("123"),
+                  Expanded(
+                      child: Text(
+                    "---------------",
+                    maxLines: 1,
+                  ))
+                ],
+              ),
+            ])),
+            Column(
+              children: [Text("data"), Text("23")],
+            )
+          ],
+        ),
     '/b': (BuildContext context) => Text("page b"),
-    '/c': (BuildContext context) =>
-        Image.network(
+    '/c': (BuildContext context) => Image.network(
           "https://up.enterdesk.com/edpic_source/ef/bd/5c/efbd5ce92c3373a1f5da79981498904b.jpg",
           width: 1280,
           height: 720,
@@ -17,7 +53,14 @@ class router {
     '/e': (BuildContext context) => homepage(),
     '/g': (BuildContext context) => hello(),
   };
-  static var data = ['测试主页', '文字控件', '图片网络', '图片本地',"hello测试刷新view","homepage测试"];
+  static var data = [
+    '测试主页',
+    '文字控件',
+    '图片网络',
+    '图片本地',
+    "hello测试刷新view",
+    "homepage测试"
+  ];
 
   List<String> getTitleData() {
     return data;
