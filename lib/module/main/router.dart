@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:template/module/main/RowTest.dart';
 import 'package:template/module/main/test.dart';
 import 'hello.dart';
 import 'homepage.dart';
@@ -52,6 +53,7 @@ class router {
     '/d': (BuildContext context) => Image.asset("assets/images/testgif.gif"),
     '/e': (BuildContext context) => homepage(),
     '/g': (BuildContext context) => hello(),
+    '/f': (BuildContext context) => RowTest(),
   };
   static var data = [
     '测试主页',
@@ -59,7 +61,8 @@ class router {
     '图片网络',
     '图片本地',
     "hello测试刷新view",
-    "homepage测试"
+    "homepage测试",
+    "rowTest"
   ];
 
   List<String> getTitleData() {

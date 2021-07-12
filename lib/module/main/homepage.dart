@@ -18,46 +18,70 @@ class HomePageState extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
     queryMediaQuery();
-
     return Scaffold(
       appBar: AppBar(),
       body: Container(
           color: Color(0xff161B3B),
           child: Center(
-            child: Container(
-              margin: EdgeInsetsDirectional.fromSTEB(
-                  ScreenUtil().setWidth(10),
-                  ScreenUtil().setWidth(10),
-                  ScreenUtil().setWidth(10),
-                  ScreenUtil().setWidth(10)),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                color: Color(0xB32E3170),
-              ),
               child: Row(
                 children: [
-                  // Container(
-                  //   decoration: new BoxDecoration(
-                  //     color: Colors.green,
-                  //     borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                  //     border: Border.all(width: 1, color: Colors.red),
-                  //   ),
-                  //
-                  //   child: Text(
-                  //     "123",
-                  //     style: testStyle,
-                  //   ),
-                  //   width: ScreenUtil().setWidth(180),
-                  //   height: ScreenUtil().setWidth(180),
-                  //   alignment: Alignment.center,
-                  //   // color: Colors.amberAccent,
-                  // ),
+                  Container(
+                    decoration: new BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                      border: Border.all(width: 1, color: Colors.red),
+                    ),
+
+                    child: Text(
+                      "123",
+                      style: testStyle,
+                    ),
+                    width: ScreenUtil().setWidth(180),
+                    height: ScreenUtil().setWidth(180),
+                    alignment: Alignment.center,
+                    // color: Colors.amberAccent,
+                  ),
                   Expanded(child: getLeftLable()),
+                  // getLeftLable(),
                   // Spacer(),
                   getMain(),
                 ],
               ),
-            ),
+            // child: Container(
+            //   margin: EdgeInsetsDirectional.fromSTEB(
+            //       ScreenUtil().setWidth(10),
+            //       ScreenUtil().setWidth(10),
+            //       ScreenUtil().setWidth(10),
+            //       ScreenUtil().setWidth(10)),
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            //     color: Color(0xB32E3170),
+            //   ),
+            //   child: Row(
+            //     children: [
+            //       // Container(
+            //       //   decoration: new BoxDecoration(
+            //       //     color: Colors.green,
+            //       //     borderRadius: BorderRadius.all(Radius.circular(4.0)),
+            //       //     border: Border.all(width: 1, color: Colors.red),
+            //       //   ),
+            //       //
+            //       //   child: Text(
+            //       //     "123",
+            //       //     style: testStyle,
+            //       //   ),
+            //       //   width: ScreenUtil().setWidth(180),
+            //       //   height: ScreenUtil().setWidth(180),
+            //       //   alignment: Alignment.center,
+            //       //   // color: Colors.amberAccent,
+            //       // ),
+            //       Expanded(child: getLeftLable()),
+            //       // getLeftLable(),
+            //       // Spacer(),
+            //       getMain(),
+            //     ],
+            //   ),
+
           )),
     );
   }
@@ -114,24 +138,40 @@ class HomePageState extends State<StatefulWidget> {
   }
 
   Widget getLeftLable() {
-    return Expanded(
-      child: Column(
-        children: [
-          getOne(),
-          getTwo(),
-          Container(
-            margin: EdgeInsetsDirectional.fromSTEB(
-                ScreenUtil().setWidth(12), 0, 0, ScreenUtil().setWidth(12)),
-            color: Color(0x1AC8C8FF),
-            width: ScreenUtil().setWidth(240),
-            height: ScreenUtil().setWidth(1),
-          ),
-          getThree(),
-        ],
-        // mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-      ),
+    return Column(
+      children: [
+        getOne(),
+        getTwo(),
+        Container(
+          margin: EdgeInsetsDirectional.fromSTEB(
+              ScreenUtil().setWidth(12), 0, 0, ScreenUtil().setWidth(12)),
+          color: Color(0x1AC8C8FF),
+          width: ScreenUtil().setWidth(240),
+          height: ScreenUtil().setWidth(1),
+        ),
+        getThree(),
+      ],
+      // mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
     );
+    // return Expanded(
+    //   child: Column(
+    //     children: [
+    //       getOne(),
+    //       getTwo(),
+    //       Container(
+    //         margin: EdgeInsetsDirectional.fromSTEB(
+    //             ScreenUtil().setWidth(12), 0, 0, ScreenUtil().setWidth(12)),
+    //         color: Color(0x1AC8C8FF),
+    //         width: ScreenUtil().setWidth(240),
+    //         height: ScreenUtil().setWidth(1),
+    //       ),
+    //       getThree(),
+    //     ],
+    //     // mainAxisAlignment: MainAxisAlignment.start,
+    //     crossAxisAlignment: CrossAxisAlignment.start,
+    //   ),
+    // );
   }
 
   Widget getOne() {
@@ -148,26 +188,26 @@ class HomePageState extends State<StatefulWidget> {
             style: TextStyle(color: Color(0xFF9FADE2), fontSize: 14),
           ),
         ),
-        Container(
-          height: ScreenUtil().setWidth(20),
-          margin: EdgeInsetsDirectional.fromSTEB(
-              ScreenUtil().setWidth(0),
-              ScreenUtil().setWidth(17),
-              ScreenUtil().setWidth(10),
-              ScreenUtil().setWidth(14)),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            border: Border.all(width: 1, color: Colors.blue),
-          ),
-          child: Text(
-            "红钻工资红钻工资红钻工资红钻工资红钻工资红钻工资红钻工资红钻工资",
-            maxLines: 1,
-            style: TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-          alignment: Alignment.center,
-        )
-
+        // Container(
+        //   height: ScreenUtil().setWidth(20),
+        //   margin: EdgeInsetsDirectional.fromSTEB(
+        //       ScreenUtil().setWidth(0),
+        //       ScreenUtil().setWidth(17),
+        //       ScreenUtil().setWidth(10),
+        //       ScreenUtil().setWidth(14)),
+        //   decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        //     border: Border.all(width: 1, color: Colors.blue),
+        //   ),
+        //   child: Text(
+        //     "红钻工资红钻工资红钻工资红钻工资红钻工资红钻工资红钻工资红钻工资",
+        //     maxLines: 1,
+        //     style: TextStyle(color: Colors.white),
+        //     textAlign: TextAlign.center,
+        //   ),
+        //   alignment: Alignment.center,
+        // )
+        Text("123123123213213213123213123123123"),
       ],
     );
   }
