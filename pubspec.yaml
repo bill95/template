@@ -30,6 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.6
   flutter_screenutil: ^4.0.3+3
+  marquee_flutter: ^0.1.3
+  dio: ^3.0.10
+  connectivity: 2.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -58,10 +61,10 @@ flutter:
     - family: DINCOND
       fonts:
         - asset: assets/font/DINCOND-BOLD_1.ttf
-#  fonts:
-#    - family: DINCOND
-#        fonts:
-#          - asset:font/DINCOND-BOLD_1.ttf
+  #  fonts:
+  #    - family: DINCOND
+  #        fonts:
+  #          - asset:font/DINCOND-BOLD_1.ttf
   #    - family:DINCOND
   #    - fonts:
   #      - assets: assets/font/DINCOND-BOLD_1.ttf

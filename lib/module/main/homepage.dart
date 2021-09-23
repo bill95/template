@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:marquee_flutter/marquee_flutter.dart';
 
 class homepage extends StatefulWidget {
   @override
@@ -20,16 +21,19 @@ class HomePageState extends State<StatefulWidget> {
     queryMediaQuery();
 
     return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-          color: Color(0xff161B3B),
-          child: Center(
-            child: Container(
+        appBar: AppBar(),
+        backgroundColor: Color(0xff161B3B),
+        body: Column(
+          children: [
+            Container(
+              constraints: BoxConstraints.expand(height: 140),
+              // constraints: BoxConstraints(maxHeight: 140, minHeight: 140,maxWidth: double.infinity,minWidth: double.infinity),
               margin: EdgeInsetsDirectional.fromSTEB(
-                  ScreenUtil().setWidth(10),
-                  ScreenUtil().setWidth(10),
-                  ScreenUtil().setWidth(10),
-                  ScreenUtil().setWidth(10)),
+                setValue(10),
+                setValue(10),
+                setValue(10),
+                setValue(10),
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                 color: Color(0xB32E3170),
@@ -58,8 +62,8 @@ class HomePageState extends State<StatefulWidget> {
                 ],
               ),
             ),
-          )),
-    );
+          ],
+        ));
   }
 
   void queryMediaQuery() {
@@ -97,8 +101,8 @@ class HomePageState extends State<StatefulWidget> {
 
   Widget getDefineBtn(String text, Color color) {
     return Container(
-      width: ScreenUtil().setWidth(75),
-      height: ScreenUtil().setWidth(28),
+      width: setValue(75),
+      height: setValue(28),
       alignment: Alignment.center,
       margin: EdgeInsetsDirectional.fromSTEB(0, ScreenUtil().setWidth(8),
           ScreenUtil().setWidth(10), ScreenUtil().setWidth(8)),
@@ -121,10 +125,10 @@ class HomePageState extends State<StatefulWidget> {
           getTwo(),
           Container(
             margin: EdgeInsetsDirectional.fromSTEB(
-                ScreenUtil().setWidth(12), 0, 0, ScreenUtil().setWidth(12)),
+                setValue(12), 0, 0, setValue(12)),
             color: Color(0x1AC8C8FF),
-            width: ScreenUtil().setWidth(240),
-            height: ScreenUtil().setWidth(1),
+            width: setValue(240),
+            height: setValue(1),
           ),
           getThree(),
         ],
@@ -139,22 +143,20 @@ class HomePageState extends State<StatefulWidget> {
       children: [
         Container(
           margin: EdgeInsetsDirectional.fromSTEB(
-              ScreenUtil().setWidth(12),
-              ScreenUtil().setWidth(17),
-              ScreenUtil().setWidth(10),
-              ScreenUtil().setWidth(14)),
+              setValue(12), setValue(17), setValue(10), setValue(14)),
           child: Text(
             "我的红钻",
             style: TextStyle(color: Color(0xFF9FADE2), fontSize: 14),
           ),
         ),
         Container(
-          height: ScreenUtil().setWidth(20),
+          width:  setValue(160),
+          // height: ScreenUtil().setWidth(20),
           margin: EdgeInsetsDirectional.fromSTEB(
-              ScreenUtil().setWidth(0),
-              ScreenUtil().setWidth(17),
-              ScreenUtil().setWidth(10),
-              ScreenUtil().setWidth(14)),
+              setValue(0),
+              setValue(17),
+              setValue(10),
+              setValue(14)),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
             border: Border.all(width: 1, color: Colors.blue),
@@ -167,7 +169,6 @@ class HomePageState extends State<StatefulWidget> {
           ),
           alignment: Alignment.center,
         )
-
       ],
     );
   }
@@ -175,7 +176,7 @@ class HomePageState extends State<StatefulWidget> {
   Widget getTwo() {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(
-          ScreenUtil().setWidth(12), 0, 0, ScreenUtil().setWidth(8)),
+          setValue(12), 0, 0,  setValue(8)),
       child: Row(
         children: [
           Container(
@@ -184,14 +185,14 @@ class HomePageState extends State<StatefulWidget> {
             height: 12,
           ),
           SizedBox(
-            width: ScreenUtil().setWidth(3),
+            width:  setValue(3),
           ),
           Text(
             "1,223,800",
             style: testStyle,
           ),
           SizedBox(
-            width: ScreenUtil().setWidth(12),
+            width:  setValue(12),
           ),
           Container(
             color: Colors.blue,
@@ -285,6 +286,10 @@ class HomePageState extends State<StatefulWidget> {
           ],
         ),
         margin: EdgeInsetsDirectional.fromSTEB(
-            ScreenUtil().setWidth(12), 0, 0, ScreenUtil().setWidth(12)));
+            setValue(12), 0, 0,  setValue(12)));
+  }
+
+  double setValue(double i) {
+    return i;
   }
 }

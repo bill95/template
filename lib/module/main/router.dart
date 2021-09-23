@@ -1,46 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:marquee_flutter/marquee_flutter.dart';
+import 'package:template/module/costomview/YYMarquee.dart';
+import 'package:template/module/main/tab.dart';
 import 'package:template/module/main/test.dart';
+import 'GridViewTest.dart';
+import 'NetWorkTest.dart';
 import 'hello.dart';
 import 'homepage.dart';
 
 class router {
   static final Map<String, WidgetBuilder> map = <String, WidgetBuilder>{
-    '/a': (BuildContext context) => Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    '/a': (BuildContext context) => YYMarquee(
+          stepOffset: 200.0,
+          duration: Duration(seconds: 5),
+          paddingLeft: 50.0,
           children: [
-            Expanded(
-                child: Column(children: [
-              Row(
-                children: [
-                  // Expanded(flex: 3, child: Text("12312323")),
-                  // Expanded(child: Text("12"))
-                  Text(
-                    "123",
-                    maxLines: 1,
-                  ),
-                  Expanded(
-                      child: Text(
-                    "===============",
-                    maxLines: 1,
-                  )),
-                ],
+            Text(
+              '手机用户155****0523借款成功',
+              style: TextStyle(
+                fontSize: 13,
+                color: Color(0xFFEE8E2B),
               ),
-              Row(
-                children: [
-                  // Expanded(flex: 3, child: Text("12312323")),
-                  // Expanded(child: Text("12"))
-                  Text("123"),
-                  Expanded(
-                      child: Text(
-                    "---------------",
-                    maxLines: 1,
-                  ))
-                ],
-              ),
-            ])),
-            Column(
-              children: [Text("data"), Text("23")],
-            )
+            ),
+            Text(
+              '手机用户1345****0531借款成功',
+              style: TextStyle(fontSize: 13, color: Color(0xFFEE8E2B)),
+            ),
+            Text(
+              '手机用户145****0555借款成功',
+              style: TextStyle(fontSize: 13, color: Color(0xFFEE8E2B)),
+            ),
+            Text(
+              '手机用户175****0594借款成功',
+              style: TextStyle(fontSize: 13, color: Color(0xFFEE8E2B)),
+            ),
+            Text(
+              '手机用户185****0521借款成功',
+              style: TextStyle(fontSize: 13, color: Color(0xFFEE8E2B)),
+            ),
           ],
         ),
     '/b': (BuildContext context) => Text("page b"),
@@ -52,6 +49,9 @@ class router {
     '/d': (BuildContext context) => Image.asset("assets/images/testgif.gif"),
     '/e': (BuildContext context) => homepage(),
     '/g': (BuildContext context) => hello(),
+    '/F': (BuildContext context) => GridViewTest(),
+    '/h': (BuildContext context) => NetWorkTest(),
+    '/i': (BuildContext context) => TabHome(),
   };
   static var data = [
     '测试主页',
@@ -59,7 +59,10 @@ class router {
     '图片网络',
     '图片本地',
     "hello测试刷新view",
-    "homepage测试"
+    "homepage测试",
+    "GridViewTest",
+    "NetWorkTest",
+    "TabHome"
   ];
 
   List<String> getTitleData() {

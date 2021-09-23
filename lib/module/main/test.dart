@@ -61,27 +61,23 @@ class Test extends StatelessWidget {
           itemCount: data.length,
           itemBuilder: (BuildContext context, int index) {
             return Center(
-              child: Column(
-                children: [
-                  Container(
-                    height: 50,
-                    color: Colors.amber[colorCodes[0]],
-                    child: Center(
-                        child: Listener(
-                            // onPointerDown:showToast,
-                            child: GestureDetector(
-                      child: Text(
-                        ' ${data[index]}',
-                      ),
-                      onTap: () {
-                        showToast("123");
-                        print("testtet: "+index.toString());
-                        print(getData());
-                        Navigator.of(context).pushNamed(getData().elementAt(index));
-                      },
-                    ))),
-                  ),
-                ],
+              child:  Container(
+                height: 50,
+                color: Colors.amber[colorCodes[0]],
+                child: Center(
+                    child: Listener(
+                      // onPointerDown:showToast,
+                        child: GestureDetector(
+                          child: Text(
+                            ' ${data[index]}',
+                          ),
+                          onTap: () {
+                            showToast("123");
+                            print("testtet: "+index.toString());
+                            print(getData());
+                            Navigator.of(context).pushNamed(getData().elementAt(index));
+                          },
+                        ))),
               ),
             );
           },
