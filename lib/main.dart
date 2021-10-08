@@ -3,9 +3,13 @@ import 'package:flutter/rendering.dart';
 import 'package:template/module/main/router.dart';
 import 'package:template/module/main/test.dart';
 
+import 'module/http/http_manager.dart';
+
 void main() {
   // debugPaintSizeEnabled = true;
-
+  HttpManager().init(
+    baseUrl: "http://interface.baoshixingqiu.com",
+  );
   runApp(MyApp());
 }
 

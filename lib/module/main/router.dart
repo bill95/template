@@ -82,4 +82,12 @@ class router {
   Map<String, WidgetBuilder> getData2() {
     return map;
   }
+// final AbstractRoutes routes = PageRoutes(
+//   pages: <String, Page<Object, dynamic>>{
+//     ///页面传值跳转模块演示
+//     "testpage": testPage(),
+//     "SecondPage": SecondPage(),
+//   },
+// );
+
 }

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:template/module/http/http_manager.dart';
 import 'package:template/module/main/router.dart';
 import 'package:template/module/main/test.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
+  HttpManager().init(
+    baseUrl: "http://interface.baoshixingqiu.com",
+  );
   runApp(MyApp());
 }
 
@@ -57,7 +61,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 1;
-
 
   void _incrementCounter() {
     setState(() {

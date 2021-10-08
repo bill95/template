@@ -14,12 +14,28 @@ class TabHome extends StatefulWidget {
 
 class TabHomeState extends State<TabHome> with SingleTickerProviderStateMixin {
   TabController _tabController;
+  final pages = [
+    GridViewTest(),
+    NetWorkTest(),
+    NetWorkTest(),
+    GridViewTest(),
+  ];
+
+  int cIndex = 0;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _tabController = TabController(vsync: this, length: 4);
+  }
+
+  void changePage(index) {
+    if (index != cIndex) {
+      setState(() {
+        cIndex = index;
+      });
+    }
   }
 
   @override
@@ -47,21 +63,30 @@ class TabHomeState extends State<TabHome> with SingleTickerProviderStateMixin {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.camera_alt)),
-          BottomNavigationBarItem(icon: Icon(Icons.camera)),
-          BottomNavigationBarItem(icon: Icon(Icons.camera)),
-          BottomNavigationBarItem(icon: Icon(Icons.camera)),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.camera_alt),
+              label: "123",
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.camera),
+              label: "222",
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.camera),
+              label: "323",
+              backgroundColor: Colors.blue),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.camera),
+              label: "423",
+              backgroundColor: Colors.blue),
         ],
+        onTap: (index) {
+          changePage(index);
+        },
+        currentIndex: cIndex,
+        type: BottomNavigationBarType.fixed,
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: <Widget>[
-          GridViewTest(),
-          NetWorkTest(),
-          NetWorkTest(),
-          NetWorkTest(),
-        ],
-      ),
+      body: pages[cIndex],
     );
   }
 }
