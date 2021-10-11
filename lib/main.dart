@@ -1,5 +1,9 @@
+import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:template/module/bean/NameBean.dart';
+import 'package:template/module/bean/Testbean.dart';
 import 'package:template/module/main/router.dart';
 import 'package:template/module/main/test.dart';
 
@@ -15,8 +19,24 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  TestBean<NameBean> getdata() {
+    TestBean bean = TestBean();
+    bean.code = 0;
+    bean.msg = "成功";
+    NameBean name = NameBean();
+    name.name = "tom";
+    bean.t = name;
+    return bean;
+  }
   @override
   Widget build(BuildContext context) {
+    // Rx.fromCallable(()=>getdata()).map((event) => event.t).startWith(startValue.);
+    Future <NameBean> data =
+        Rx.fromCallable(() => getdata()).map<NameBean>((event) {
+          return event.t;
+        }).last;
+    print("getData:"+data.toString());
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -108,7 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
             ),
           ],
         ),
