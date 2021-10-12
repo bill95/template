@@ -8,6 +8,8 @@ import 'package:template/module/http/http_manager.dart';
 import 'package:template/module/main/router.dart';
 import 'package:template/module/main/test.dart';
 
+typedef Compare<T> = int Function(T a, T b);
+
 void main() {
   // debugPaintSizeEnabled = true;
   HttpManager().init(
@@ -18,7 +20,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  TestBean<NameBean> getdata() {
+  TestBean getdata() {
     TestBean bean = TestBean();
     bean.code = 0;
     bean.msg = "成功";
@@ -28,38 +30,54 @@ class MyApp extends StatelessWidget {
     return bean;
   }
 
+  test(TestBean<NameBean> Function() a, int b) {}
+
   @override
   Widget build(BuildContext context) {
     // Rx.fromCallable(()=>getdata()).map((event) => event.t).startWith(startValue.);
-    Rx.fromCallable<TestBean<NameBean>>(() {
+    // Stream.
+    Rx.fromCallable<TestBean>(() {
       return getdata();
     }).map<NameBean>((event) {
       return event.t;
     }).listen((event) {
-      print(event.name);
+      print("result:" + event.name);
     }, onError: (e) {
-      print(e);
+      print("error:" + e.toString());
     });
 
+    Rx.fromCallable<String>(() => "123")
+        .map((event) => 1)
+        .listen((event) {
+      print(event + 5);
+    });
+    // print(getdata());
+    //    Rx.fromCallable<TestBean<NameBean>>(() {
+    //   return getdata();
+    // }).listen((event) {
+    //   print(event.msg);
+    // }, onError: (e) {
+    //   print(e);
+    // });
+
     return ScreenUtilInit(
-      builder: () =>
-          MaterialApp(
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              // This is the theme of your application.
-              //
-              // Try running your application with "flutter run". You'll see the
-              // application has a blue toolbar. Then, without quitting the app, try
-              // changing the primarySwatch below to Colors.green and then invoke
-              // "hot reload" (press "r" in the console where you ran "flutter run",
-              // or simply save your changes to "hot reload" in a Flutter IDE).
-              // Notice that the counter didn't reset back to zero; the application
-              // is not restarted.
-              primarySwatch: Colors.blue,
-            ),
-            home: Test(),
-            routes: router().getData2(),
-          ),
+      builder: () => MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home: Test(),
+        routes: router().getData2(),
+      ),
       designSize: Size(360, 690),
     );
   }
@@ -136,10 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline4,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
